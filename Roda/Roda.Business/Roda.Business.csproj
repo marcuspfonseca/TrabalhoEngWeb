@@ -40,13 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="JogoBusiness.cs" />
+    <Compile Include="Conversor\ConversorEntityModel.cs" />
+    <Compile Include="Conversor\ConversorModelEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Roda.DataAccess\Roda.DataAccess.csproj">
       <Project>{9e816013-633d-4e55-a283-e1c43227442d}</Project>
       <Name>Roda.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roda.Entities\Roda.Entities.csproj">
+      <Project>{aafd30bd-abbd-4f31-af0e-54490ef36e36}</Project>
+      <Name>Roda.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Roda.Utils\Roda.Utils.csproj">
       <Project>{9bdb435f-ff54-44e8-9725-bbb58f631929}</Project>

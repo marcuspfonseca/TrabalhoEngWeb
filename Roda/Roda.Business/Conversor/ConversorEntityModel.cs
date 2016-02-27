@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Roda.DataAccess
+namespace Roda.Business.Conversor
 {
-    public class Class1
+    public class ConversorEntityModel
     {
+
     }
 }
