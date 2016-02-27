@@ -77,3 +77,12 @@ textarea {
   padding: 35px 0;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

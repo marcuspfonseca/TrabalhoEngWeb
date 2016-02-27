@@ -33,9 +33,19 @@ namespace Roda.Business.Conversor
             return placaVideo;
         }
 
-        public static ProcessadorEntity ConverterProcessadorModelParaProcessadorEntity(PlacaVideo placaVideoModel)
+        public static List<ProcessadorEntity> ConverterProcessadorModelParaProcessadorEntity(ICollection<Processador> processadorModel)
+        {
+            return processadorModel.Select(_processador => ConverterProcessadorModelParaProcessadorEntity(_processador)).ToList();
+        }
+
+        public static ProcessadorEntity ConverterProcessadorModelParaProcessadorEntity(Processador processadorModel)
         {
             ProcessadorEntity processadorEntity = new ProcessadorEntity();
+            processadorEntity.Clock = processadorModel.Clock;
+            processadorEntity.Descricao = processadorModel.Descricao;
+            processadorEntity.ID = processadorEntity.ID;
+            processadorEntity.IDProcessadorEquivalente = processadorEntity.IDProcessadorEquivalente;
+            processadorEntity.Potencia = processadorEntity.Potencia;            
             return processadorEntity;
         }
     }

@@ -61,6 +61,7 @@
     <Compile Include="Processador.cs">
       <DependentUpon>RodaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProcessadorDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RodaModel.Context.cs">
       <AutoGen>True</AutoGen>

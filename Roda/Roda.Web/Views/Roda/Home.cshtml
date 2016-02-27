@@ -1,1 +1,37 @@
-﻿
+﻿<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">                
+                <h1 class="text-center">RODA!?</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label>Processor</label>
+                            @Html.DropDownList("Processador")
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section" draggable="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-block btn-lg btn-primary">QUAL O SEU COMPUTADOR?</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $('#Processador').select2();
+        })
+    </script>
+}
