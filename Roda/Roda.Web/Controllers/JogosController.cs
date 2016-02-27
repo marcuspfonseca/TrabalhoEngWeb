@@ -13,5 +13,15 @@ namespace Roda.Web.Controllers
         {
             return View("~/Views/Roda/Sobre.cshtml");
         }
+
+        public ActionResult Roda()
+        {
+            return View("~/Views/Roda/Roda.cshtml");
+        }
+
+        public ActionResult NaoRoda()
+        {
+            return View("~/Views/Roda/NaoRoda.cshtml");
+        }
     }
 }
