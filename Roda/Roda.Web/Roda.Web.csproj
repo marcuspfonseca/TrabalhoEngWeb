@@ -183,12 +183,21 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Nigga2.jpg" />
+    <Content Include="Content\Images\Nigga.jpg" />
+    <Content Include="Content\Images\Marcus.jpg" />
+    <Content Include="Content\Images\Facepalm.png" />
+    <Content Include="Content\Images\BlackWhite.png" />
+    <Content Include="Content\Images\LogoRoda.png" />
+    <Content Include="Content\Images\CapaSumail.jpg" />
+    <Content Include="Content\Images\Nigga3.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Images\ThumbsUp.png" />
     <None Include="Properties\PublishProfiles\Roda.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
