@@ -28,6 +28,7 @@ namespace Roda.DataAccess
         public string NomeEmpresa { get; set; }
         public Nullable<int> MinimoMemoria { get; set; }
         public Nullable<int> MinimoHD { get; set; }
+        public string DescricaoRequisitos { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlacaVideo> PlacasCompativeis { get; set; }

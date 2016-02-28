@@ -58,6 +58,7 @@
     <Compile Include="PlacaVideo.cs">
       <DependentUpon>RodaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PlacaVideoDataAccess.cs" />
     <Compile Include="Processador.cs">
       <DependentUpon>RodaModel.tt</DependentUpon>
     </Compile>

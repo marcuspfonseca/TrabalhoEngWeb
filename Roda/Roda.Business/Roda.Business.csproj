@@ -43,6 +43,7 @@
     <Compile Include="JogoBusiness.cs" />
     <Compile Include="Conversor\ConversorEntityModel.cs" />
     <Compile Include="Conversor\ConversorModelEntity.cs" />
+    <Compile Include="PlacaVideoBusiness.cs" />
     <Compile Include="ProcessadorBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -21,10 +21,11 @@ namespace Roda.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js", "~/Scripts/select2.js"));
+                      "~/Scripts/respond.js", "~/Scripts/select2.js", "~/Scripts/numerico.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/css/select2.css",
                       "~/Content/select2-bootstrap.css",
                       "~/Content/site.css"));
         }

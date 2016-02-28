@@ -28,7 +28,7 @@ namespace Roda.Component
             return new ProcessadorComponent();
         }
 
-        public List<ProcessadorEntity> listarProcessadoresCadastrados()
+        public List<ProcessadorEntity> ListarProcessadoresCadastrados()
         {
             return ProcessadorBusiness.listarProcessadoresCadastrados();
         }

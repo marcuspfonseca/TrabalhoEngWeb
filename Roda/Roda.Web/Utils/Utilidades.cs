@@ -13,8 +13,19 @@ namespace Roda.Web.Utils
         public static List<SelectListItem> obterSelectListProcessadores()
         {
             List<SelectListItem> listItens = new List<SelectListItem>();
-            List<ProcessadorEntity> processadores = ProcessadorComponent.Get().listarProcessadoresCadastrados();
-            processadores.ForEach(proc => listItens.Add(new SelectListItem() { Text = proc.Descricao, Value = proc.ID.ToString() }));
+            listItens.Add(new SelectListItem());
+            List<ProcessadorEntity> processadores = ProcessadorComponent.Get().ListarProcessadoresCadastrados();
+            processadores.ForEach(proc => listItens.Add(new SelectListItem() { Text = proc.Descricao + " " + proc.Clock + "Ghz", Value = proc.ID.ToString() }));
+            
+            return listItens;
+        }
+
+        public static List<SelectListItem> obterSelectListPlacasVideo()
+        {
+            List<SelectListItem> listItens = new List<SelectListItem>();
+            listItens.Add(new SelectListItem());
+            List<PlacaVideoEntity> processadores = PlacaVideoComponent.Get().ListarPlacasVideoCadastradas();
+            processadores.ForEach(proc => listItens.Add(new SelectListItem() { Text = proc.Descricao + " " + proc.Clock + "Ghz", Value = proc.ID.ToString() }));
             return listItens;
         }
     }

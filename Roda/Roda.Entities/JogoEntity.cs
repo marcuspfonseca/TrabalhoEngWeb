@@ -19,6 +19,7 @@ namespace Roda.Entities
         public string Descricao { get; set; }
         public string UrlImagem { get; set; }
         public string NomeEmpresa { get; set; }
+        public string DescricaoRequisitos { get; set; }
         public Nullable<int> MinimoMemoria { get; set; }
         public Nullable<int> MinimoHD { get; set; }
 

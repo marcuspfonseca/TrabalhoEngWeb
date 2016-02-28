@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Roda.DataAccess.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Roda.DataAccess.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="rod_jogo">
           <Key>
             <PropertyRef Name="id_jogo" />
@@ -16,6 +16,7 @@
           <Property Name="nom_empresa" Type="varchar" MaxLength="45" />
           <Property Name="qtd_mem_minimo" Type="int" />
           <Property Name="qtd_hd_minimo" Type="int" />
+          <Property Name="desc_requisitos" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="rod_jogo_placa_video">
           <Key>
@@ -156,8 +157,7 @@
             <End Role="rod_processador1" EntitySet="rod_processador" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Roda.DataAccess.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -174,6 +174,7 @@
           <Property Name="MinimoHD" Type="Int32" />
           <NavigationProperty Name="PlacasCompativeis" Relationship="Self.rod_jogo_placa_video" FromRole="rod_jogo" ToRole="rod_placa_video" />
           <NavigationProperty Name="ProcessadoresCompativeis" Relationship="Self.rod_jogo_processador" FromRole="rod_jogo" ToRole="rod_processador" />
+          <Property Name="DescricaoRequisitos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PlacaVideo">
           <Key>
@@ -261,6 +262,7 @@
           <EntitySetMapping Name="rod_jogo">
             <EntityTypeMapping TypeName="Roda.DataAccess.Model.Jogo">
               <MappingFragment StoreEntitySet="rod_jogo">
+                <ScalarProperty Name="DescricaoRequisitos" ColumnName="desc_requisitos" />
                 <ScalarProperty Name="ID" ColumnName="id_jogo" />
                 <ScalarProperty Name="Nome" ColumnName="nom_jogo" />
                 <ScalarProperty Name="Descricao" ColumnName="desc_jogo" />

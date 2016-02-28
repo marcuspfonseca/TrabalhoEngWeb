@@ -24,12 +24,23 @@ namespace Roda.Business.Conversor
             jogoEntity.NomeEmpresa = jogo.NomeEmpresa;
             jogoEntity.MinimoHD = jogo.MinimoHD;
             jogoEntity.MinimoMemoria = jogo.MinimoMemoria;
+            jogoEntity.DescricaoRequisitos = jogo.DescricaoRequisitos;
             return jogoEntity;
+        }
+
+        public static List<PlacaVideoEntity> ConverterPlacaVideoModelParaPlacaVideoEntity(ICollection<PlacaVideo> placaVideoModel)
+        {
+            return placaVideoModel.Select(_placa => ConverterPlacaVideoModelParaPlacaVideoEntity(_placa)).ToList();
         }
 
         public static PlacaVideoEntity ConverterPlacaVideoModelParaPlacaVideoEntity(PlacaVideo placaVideoModel)
         {
             PlacaVideoEntity placaVideo = new PlacaVideoEntity();
+            placaVideo.Clock = placaVideoModel.Clock;
+            placaVideo.Descricao = placaVideoModel.Descricao;
+            placaVideo.ID = placaVideoModel.ID;
+            placaVideo.IDPlacaEquivalente = placaVideoModel.IDPlacaEquivalente;
+            placaVideo.Potencia = placaVideoModel.Potencia;
             return placaVideo;
         }
 
@@ -43,9 +54,9 @@ namespace Roda.Business.Conversor
             ProcessadorEntity processadorEntity = new ProcessadorEntity();
             processadorEntity.Clock = processadorModel.Clock;
             processadorEntity.Descricao = processadorModel.Descricao;
-            processadorEntity.ID = processadorEntity.ID;
-            processadorEntity.IDProcessadorEquivalente = processadorEntity.IDProcessadorEquivalente;
-            processadorEntity.Potencia = processadorEntity.Potencia;            
+            processadorEntity.ID = processadorModel.ID;
+            processadorEntity.IDProcessadorEquivalente = processadorModel.IDProcessadorEquivalente;
+            processadorEntity.Potencia = processadorModel.Potencia;            
             return processadorEntity;
         }
     }

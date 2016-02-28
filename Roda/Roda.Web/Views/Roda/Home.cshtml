@@ -1,4 +1,5 @@
-﻿<div class="section">
+﻿@using Roda.Web.Utils
+<div class="section">
     <div class="container">
         <div class="row">
             <div class="col-md-12">                
@@ -9,9 +10,28 @@
             <div class="col-md-12">
                 <div>
                     <form>
-                        <div class="form-group">
-                            <label>Processor</label>
-                            @Html.DropDownList("Processador")
+                        <div class="form-group select2">
+                            <label for="Processador">Processador</label>
+                            @Html.DropDownList("Processador", Utilidades.obterSelectListProcessadores(), new { @class = "select2 form-control" })
+                        </div>
+                        <div class="form-group select2">
+                            <label for="PlacaVideo">Placa de Vídeo</label>
+                            @Html.DropDownList("PlacaVideo", Utilidades.obterSelectListPlacasVideo(), new { @class = "select2 form-control" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="QuantidadeMemoria">Quantidade Memória RAM</label>
+                                @Html.TextBox("QuantidadeMemoria", "", new { @class="form-control", @maxlength = 8 })
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="QuantidadeHD">Quantidade HD disponível</label>
+                                @Html.TextBox("QuantidadeHD", "", new { @class = "form-control", @maxlength = 8 })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn btn-block btn-lg" style="background-color: #ff851b; border-color: #ff851b; color: #FFFFFF">Selecionar Jogo</a>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -19,19 +39,13 @@
         </div>
     </div>
 </div>
-<div class="section" draggable="true">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <a class="btn btn-block btn-lg btn-primary">QUAL O SEU COMPUTADOR?</a>
-            </div>
-        </div>
-    </div>
-</div>
 @section scripts{
     <script>
         $(function () {
-            $('#Processador').select2();
+            $('#Processador').select2({ placeholder: 'Selecione o modelo de processador', allowClear: true });
+            $('#PlacaVideo').select2({ placeholder: 'Selecione a placa de vídeo', allowClear: true });
+            $('#QuantidadeMemoria').numerico({ allowDecimal: true });
+            $('#QuantidadeHD').numerico({ allowDecimal: true });
         })
     </script>
 }
