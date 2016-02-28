@@ -1,4 +1,9 @@
 ﻿@using Roda.Web.Utils
+@using Roda.Web.Models
+@model CookieRoda
+@{
+    CookieRoda cookie = Model == null ? new CookieRoda() : Model;
+}
 <div class="section">
     <div class="container">
         <div class="row">
@@ -9,31 +14,32 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <form>
+                    @using (Html.BeginForm("VerificarJogos", "Jogos", FormMethod.Get))
+                    { 
                         <div class="form-group select2">
                             <label for="Processador">Processador</label>
-                            @Html.DropDownList("Processador", Utilidades.obterSelectListProcessadores(), new { @class = "select2 form-control" })
+                            @Html.DropDownList("Processador", Utilidades.obterSelectListProcessadores(cookie.IDProcessador), new { @class = "select2 form-control" })
                         </div>
                         <div class="form-group select2">
                             <label for="PlacaVideo">Placa de Vídeo</label>
-                            @Html.DropDownList("PlacaVideo", Utilidades.obterSelectListPlacasVideo(), new { @class = "select2 form-control" })
+                            @Html.DropDownList("PlacaVideo", Utilidades.obterSelectListPlacasVideo(cookie.IDPlacaVideo), new { @class = "select2 form-control" })
                         </div>
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label for="QuantidadeMemoria">Quantidade Memória RAM</label>
-                                @Html.TextBox("QuantidadeMemoria", "", new { @class="form-control", @maxlength = 8 })
+                                @Html.TextBox("QuantidadeMemoria", cookie.Memoria == 0.0 ? "" : cookie.Memoria.ToString(), new { @class="form-control", @maxlength = 8 })
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="QuantidadeHD">Quantidade HD disponível</label>
-                                @Html.TextBox("QuantidadeHD", "", new { @class = "form-control", @maxlength = 8 })
+                                @Html.TextBox("QuantidadeHD", cookie.HD == 0.0 ? "" : cookie.HD.ToString(), new { @class = "form-control", @maxlength = 8 })
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <a class="btn btn-block btn-lg" style="background-color: #ff851b; border-color: #ff851b; color: #FFFFFF">Selecionar Jogo</a>
+                                <button type="submit" class="btn btn-block btn-lg" style="background-color: #ff851b; border-color: #ff851b; color: #FFFFFF">Selecionar Jogo</button>
                             </div>
                         </div>
-                    </form>
+                    }
                 </div>
             </div>
         </div>
