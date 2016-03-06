@@ -15,5 +15,16 @@ namespace Roda.DataAccess
                 return contexto.rod_processador.ToList();
             }
         }
+
+        public Processador ObterProcessador(int idProcessador)
+        {
+            using (RodaContext contexto = new RodaContext())
+            {
+                return (from processador in contexto.rod_processador
+                        where processador.ID == idProcessador
+                        select processador
+                        ).FirstOrDefault();
+            }
+        }
     }
 }

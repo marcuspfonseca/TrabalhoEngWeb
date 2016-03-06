@@ -10,7 +10,10 @@
                 <h1>@Model.Nome</h1>
                 <p>@Model.Descricao</p>
                 <p>
-                    @Html.Raw(Model.DescricaoRequisitos.Replace("<br>", "<br />"))
+                    @if(!String.IsNullOrWhiteSpace(Model.DescricaoRequisitos))
+                    {
+                        @Html.Raw(Model.DescricaoRequisitos.Replace("<br>", "<br />"))
+                    }
                 </p>
             </div>
         </div>
@@ -20,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a class="btn btn-block btn-lg btn-padrao">RODA?!</a>
+                <a href="@Url.Action("VerificarCompativel", "Jogos", new { idJogo = Model.ID })" class="btn btn-block btn-lg btn-padrao">RODA?!</a>
             </div>
         </div>
     </div>

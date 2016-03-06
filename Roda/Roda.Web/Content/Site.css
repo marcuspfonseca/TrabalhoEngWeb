@@ -90,3 +90,7 @@ h6,
     border-color: #ff851b; 
     color: #FFFFFF;
 }
+
+.error {
+    color: #e80c4d;
+}

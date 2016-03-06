@@ -25,5 +25,15 @@ namespace Roda.DataAccess
                         select jogo).FirstOrDefault();
             }
         }
+
+        public Jogo ObterJogoComRequisitos(int idJogo)
+        {
+            using (RodaContext contexto = new RodaContext())
+            {
+                return (from jogo in contexto.rod_jogo.Include("PlacasCompativeis").Include("ProcessadoresCompativeis")
+                               where jogo.ID == idJogo
+                               select jogo).FirstOrDefault();
+            }
+        }
     }
 }

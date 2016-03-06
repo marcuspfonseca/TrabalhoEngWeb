@@ -27,5 +27,17 @@ namespace Roda.Business
             List<PlacaVideo> placasVideo = PlacaVideoDataAccess.ListarPlacasVideo();
             return ConversorModelEntity.ConverterPlacaVideoModelParaPlacaVideoEntity(placasVideo);
         }
+
+        public PlacaVideoEntity ObterPlacaVideo(int idPlaca)
+        {
+            PlacaVideo placa = PlacaVideoDataAccess.ObterPlacaVideo(idPlaca);
+            return ConversorModelEntity.ConverterPlacaVideoModelParaPlacaVideoEntity(placa);
+        }
+
+        public bool VerificarSePlacaVideoEhMelhorOuEquivalente(int iDPlacaVideoUsuario, PlacaVideo placa)
+        {
+            PlacaVideo placaUsuario = PlacaVideoDataAccess.ObterPlacaVideo(iDPlacaVideoUsuario);
+            return placaUsuario.ID == placa.IDPlacaEquivalente || placaUsuario.Potencia >= placa.Potencia;
+        }
     }
 }

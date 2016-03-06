@@ -23,8 +23,15 @@ namespace Roda.Business
         }
         
         public List<ProcessadorEntity> listarProcessadoresCadastrados()
-        {            List<Roda.DataAccess.Processador> processadores = ProcessadorDataAccess.ListaProcessadores();
+        {
+            List<Roda.DataAccess.Processador> processadores = ProcessadorDataAccess.ListaProcessadores();
             return ConversorModelEntity.ConverterProcessadorModelParaProcessadorEntity(processadores);
+        }
+
+        internal bool VerificarSeProcessadorEhMelhorOuEquivalente(int iDProcessador, Processador processador)
+        {
+            Processador processadorUsuario = ProcessadorDataAccess.ObterProcessador(iDProcessador);
+            return processadorUsuario.ID == processador.IDProcessadorEquivalente || processadorUsuario.Potencia >= processador.Potencia;
         }
     }
 }

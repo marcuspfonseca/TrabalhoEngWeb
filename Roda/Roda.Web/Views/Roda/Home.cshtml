@@ -58,11 +58,36 @@
                 rules: {
                     Processador: {
                         required: true
+                    },
+                    PlacaVideo: {
+                        required: true
+                    },
+                    QuantidadeMemoria: {
+                        required: true
+                    },
+                    QuantidadeHD: {
+                        required: true
                     }
                 },
                 messages: {
                     Processador: {
-                        required: "Preeenche a porra do processador sua mula"
+                        required: 'Selecione um processador!'
+                    },
+                    PlacaVideo: {
+                        required: 'Selecione uma placa de vídeo!'
+                    },
+                    QuantidadeMemoria: {
+                        required: 'Preencha a quantidade de memória RAM!'
+                    },
+                    QuantidadeHD: {
+                        required: 'Preencha a quantidade de HD disponível!'
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    if (element.parent().children('.input-group-addon').size() > 0) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
                     }
                 }
             });

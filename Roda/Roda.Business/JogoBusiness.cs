@@ -21,6 +21,29 @@ namespace Roda.Business
                 return _jogoDataAcess;
             }
         }
+
+        private PlacaVideoBusiness _placaVideoBusiness;
+        private PlacaVideoBusiness PlacaVideoBusiness
+        {
+            get
+            {
+                if (_placaVideoBusiness == null)
+                    _placaVideoBusiness = new PlacaVideoBusiness();
+                return _placaVideoBusiness;
+            }
+        }
+
+        private ProcessadorBusiness _processadorBusiness;
+        private ProcessadorBusiness ProcessadorBusiness
+        {
+            get
+            {
+                if (_processadorBusiness == null)
+                    _processadorBusiness = new ProcessadorBusiness();
+                return _processadorBusiness;
+            }
+        }
+
         public List<JogoEntity> ListarJogosCadastrados()
         {
             List<Jogo> jogos = JogoDataAccess.ListarJogos();
@@ -35,7 +58,19 @@ namespace Roda.Business
 
         public bool VerificarSeJogoEhCompativel(int idJogo, int iDPlacaVideo, int iDProcessador, double memoria, double hD)
         {
-            return true;
+            Jogo jogoSelecionado = JogoDataAccess.ObterJogoComRequisitos(idJogo);
+            if(jogoSelecionado.MinimoHD <= hD && jogoSelecionado.MinimoMemoria <= memoria)
+            {
+                PlacaVideo placaJogo = jogoSelecionado.PlacasCompativeis.FirstOrDefault();
+                Processador processadorJogo = jogoSelecionado.ProcessadoresCompativeis.FirstOrDefault();
+
+                if (placaJogo.ID == iDPlacaVideo && processadorJogo.ID == iDProcessador)
+                    return true;
+
+                return PlacaVideoBusiness.VerificarSePlacaVideoEhMelhorOuEquivalente(iDPlacaVideo, placaJogo) &&
+                    ProcessadorBusiness.VerificarSeProcessadorEhMelhorOuEquivalente(iDProcessador, processadorJogo);
+            }
+            return false;
         }
     }
 }
