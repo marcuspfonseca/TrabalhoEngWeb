@@ -25,6 +25,14 @@ namespace Roda.Business.Conversor
             jogoEntity.MinimoHD = jogo.MinimoHD;
             jogoEntity.MinimoMemoria = jogo.MinimoMemoria;
             jogoEntity.DescricaoRequisitos = jogo.DescricaoRequisitos;
+            jogoEntity.UrlImagem = jogo.UrlImagem;
+
+            if (jogo.ProcessadoresCompativeis != null && jogo.ProcessadoresCompativeis.Any())
+                jogoEntity.ProcessadoresCompativeis = ConverterProcessadorModelParaProcessadorEntity(jogo.ProcessadoresCompativeis);
+
+            if (jogo.PlacasCompativeis != null && jogo.PlacasCompativeis.Any())
+                jogoEntity.PlacasCompativeis = ConverterPlacaVideoModelParaPlacaVideoEntity(jogo.PlacasCompativeis);
+
             return jogoEntity;
         }
 

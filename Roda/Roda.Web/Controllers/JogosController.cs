@@ -14,7 +14,7 @@ namespace Roda.Web.Controllers
     {      
 
         // GET: Jogos
-        public ActionResult Index()
+        public ActionResult Sobre()
         {
             return View("~/Views/Roda/Sobre.cshtml");
         }
@@ -38,8 +38,30 @@ namespace Roda.Web.Controllers
         public ActionResult VerificarJogos(int Processador, int PlacaVideo, double QuantidadeMemoria, double QuantidadeHD)
         {
             Utilidades.adicionarCookieRequisitos(Processador, PlacaVideo, QuantidadeMemoria, QuantidadeHD);
-            List<JogoEntity> jogosCadastrados = JogoComponent.Get().listarJogosCadastrados();
+            List<JogoEntity> jogosCadastrados = JogoComponent.Get().ListarJogosCadastrados();
             return View("~/Views/Roda/Jogos.cshtml", jogosCadastrados);
+        }
+
+        public ActionResult Jogos()
+        {
+            List<JogoEntity> jogosCadastrados = JogoComponent.Get().ListarJogosCadastrados();
+            return View("~/Views/Roda/Jogos.cshtml", jogosCadastrados);
+        }
+
+        public ActionResult DetalhesJogo(int idJogo)
+        {
+            JogoEntity jogo = JogoComponent.Get().ObterJogo(idJogo);
+            return View("~/Views/Roda/DetalheJogo.cshtml", jogo);
+        }
+
+        public ActionResult VerificarCompativel(int idJogo)
+        {
+            CookieRoda cookie = Utilidades.obterCookieRoda();
+            if (cookie == null)
+                return RedirectToAction("Home");
+            if (JogoComponent.Get().VerificarSeJogoEhCompativel(idJogo, cookie.IDPlacaVideo, cookie.IDProcessador, cookie.Memoria, cookie.HD))
+                return View("~/Views/Roda/Roda.cshtml");
+            return View("~/Views/Roda/NaoRoda.cshtml");
         }
     }
 }

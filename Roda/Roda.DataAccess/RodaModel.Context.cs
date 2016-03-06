@@ -18,6 +18,7 @@ namespace Roda.DataAccess
         public RodaContext()
             : base("name=RodaContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

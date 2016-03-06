@@ -10,7 +10,7 @@ namespace Roda.Testes
         [TestMethod]
         public void TestMethod1()
         {
-            JogoComponent.Get().listarJogosCadastrados();
+            JogoComponent.Get().ListarJogosCadastrados();
         }
     }
 }

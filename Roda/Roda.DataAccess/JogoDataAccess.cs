@@ -8,11 +8,21 @@ namespace Roda.DataAccess
 {
     public class JogoDataAccess
     {
-        public List<Roda.DataAccess.Jogo> listarJogos()
+        public List<Roda.DataAccess.Jogo> ListarJogos()
         {
             using (RodaContext contexto = new RodaContext())
             {                
-                return contexto.rod_jogo.ToList();
+                return contexto.rod_jogo.OrderBy(jogo => jogo.Nome).ToList();
+            }
+        }
+
+        public Jogo ObterJogo(int idJogo)
+        {
+            using (RodaContext contexto = new RodaContext())
+            {
+                return (from jogo in contexto.rod_jogo
+                        where jogo.ID == idJogo
+                        select jogo).FirstOrDefault();
             }
         }
     }

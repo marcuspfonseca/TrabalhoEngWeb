@@ -30,9 +30,19 @@ namespace Roda.Component
             return new JogoComponent();
         }
 
-        public List<JogoEntity> listarJogosCadastrados()
+        public List<JogoEntity> ListarJogosCadastrados()
         {
-            return JogoBusiness.listarJogosCadastrados();
+            return JogoBusiness.ListarJogosCadastrados();
+        }
+
+        public JogoEntity ObterJogo(int idJogo)
+        {
+            return JogoBusiness.ObterJogo(idJogo);
+        }
+
+        public bool VerificarSeJogoEhCompativel(int idJogo, int iDPlacaVideo, int iDProcessador, double memoria, double hD)
+        {
+            return JogoBusiness.VerificarSeJogoEhCompativel(idJogo, iDPlacaVideo, iDProcessador, memoria, hD);
         }
     }
 }

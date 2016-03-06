@@ -271,6 +271,7 @@
     <Content Include="Views\Roda\Jogos.cshtml" />
     <Content Include="Views\Roda\Informacoes.cshtml" />
     <Content Include="Views\Roda\Home.cshtml" />
+    <Content Include="Views\Roda\DetalheJogo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

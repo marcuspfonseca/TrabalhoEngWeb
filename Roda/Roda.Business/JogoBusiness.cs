@@ -21,10 +21,21 @@ namespace Roda.Business
                 return _jogoDataAcess;
             }
         }
-        public List<JogoEntity> listarJogosCadastrados()
+        public List<JogoEntity> ListarJogosCadastrados()
         {
-            List<Jogo> jogos = JogoDataAccess.listarJogos();
+            List<Jogo> jogos = JogoDataAccess.ListarJogos();
             return ConversorModelEntity.ConverterJogoModelParaJogoEntity(jogos);
+        }
+
+        public JogoEntity ObterJogo(int idJogo)
+        {
+            Jogo jogoSelecionado = JogoDataAccess.ObterJogo(idJogo);
+            return ConversorModelEntity.ConverterJogoModelParaJogoEntity(jogoSelecionado);
+        }
+
+        public bool VerificarSeJogoEhCompativel(int idJogo, int iDPlacaVideo, int iDProcessador, double memoria, double hD)
+        {
+            return true;
         }
     }
 }
